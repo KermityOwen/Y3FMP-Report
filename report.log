@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.21)  26 APR 2024 19:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.21)  27 APR 2024 03:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -855,13 +855,13 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 \openout4 = `report.toc'.
 
  [1]
-<./images/audVsVM.png, id=182, 666.3075pt x 352.0425pt>
+<./images/audVsVM.png, id=187, 1821.80624pt x 554.07pt>
 File: ./images/audVsVM.png Graphic file (type png)
 <use ./images/audVsVM.png>
 Package pdftex.def Info: ./images/audVsVM.png  used on input line 56.
-(pdftex.def)             Requested size: 256.0748pt x 135.29773pt.
+(pdftex.def)             Requested size: 369.88582pt x 112.49446pt.
  [2 <./images/audVsVM.png>]
-<./images/kernels.png, id=191, 1830.84pt x 659.46375pt>
+<./images/kernels.png, id=194, 1830.84pt x 659.46375pt>
 File: ./images/kernels.png Graphic file (type png)
 <use ./images/kernels.png>
 Package pdftex.def Info: ./images/kernels.png  used on input line 93.
@@ -870,12 +870,12 @@ Package pdftex.def Info: ./images/kernels.png  used on input line 93.
 
 LaTeX Warning: Citation `cnn goat' on page 3 undefined on input line 97.
 
-<./images/blackpool.png, id=192, 1210.5225pt x 795.97375pt>
+<./images/blackpool.png, id=196, 1210.5225pt x 795.97375pt>
 File: ./images/blackpool.png Graphic file (type png)
 <use ./images/blackpool.png>
 Package pdftex.def Info: ./images/blackpool.png  used on input line 106.
 (pdftex.def)             Requested size: 170.71652pt x 112.24931pt.
-<./images/whitepool.png, id=193, 1208.515pt x 793.96625pt>
+<./images/whitepool.png, id=197, 1208.515pt x 793.96625pt>
 File: ./images/whitepool.png Graphic file (type png)
 <use ./images/whitepool.png>
 Package pdftex.def Info: ./images/whitepool.png  used on input line 108.
@@ -884,7 +884,7 @@ Package pdftex.def Info: ./images/whitepool.png  used on input line 108.
 
 LaTeX Warning: Citation `poolingdiff' on page 4 undefined on input line 112.
 
-<images/openpose.png, id=199, 1169.36874pt x 263.98625pt>
+<images/openpose.png, id=203, 1169.36874pt x 263.98625pt>
 File: images/openpose.png Graphic file (type png)
 <use images/openpose.png>
 Package pdftex.def Info: images/openpose.png  used on input line 127.
@@ -893,13 +893,13 @@ Package pdftex.def Info: images/openpose.png  used on input line 127.
 LaTeX Warning: Citation `openpose' on page 4 undefined on input line 132.
 
 [4 <./images/blackpool.png> <./images/whitepool.png> <./images/openpose.png>]
-<images/staticModel.png, id=207, 966.885pt x 469.755pt>
+<images/staticModel.png, id=211, 966.885pt x 469.755pt>
 File: images/staticModel.png Graphic file (type png)
 <use images/staticModel.png>
 Package pdftex.def Info: images/staticModel.png  used on input line 155.
 (pdftex.def)             Requested size: 341.43306pt x 165.87895pt.
  [5 <./images/staticModel.png>]
-<images/nonstaticModel.png, id=213, 1278.96pt x 479.0625pt>
+<images/nonstaticModel.png, id=217, 1278.96pt x 479.0625pt>
 File: images/nonstaticModel.png Graphic file (type png)
 <use images/nonstaticModel.png>
 Package pdftex.def Info: images/nonstaticModel.png  used on input line 173.
@@ -909,24 +909,24 @@ Overfull \hbox (3.77473pt too wide) in paragraph at lines 180--181
 []\T1/cmr/m/n/10.95 This solution of having a written medium with extracted features represented as respective characters
  []
 
-<images/predOverTime.png, id=214, 968.5275pt x 267.7275pt>
+<images/predOverTime.png, id=218, 968.5275pt x 267.7275pt>
 File: images/predOverTime.png Graphic file (type png)
 <use images/predOverTime.png>
 Package pdftex.def Info: images/predOverTime.png  used on input line 190.
 (pdftex.def)             Requested size: 341.43306pt x 94.38007pt.
 [6 <./images/nonstaticModel.png> <./images/predOverTime.png>] [7]
-<images/cats.png, id=230, 1132.23pt x 241.4475pt>
+<images/cats.png, id=234, 1132.23pt x 241.4475pt>
 File: images/cats.png Graphic file (type png)
 <use images/cats.png>
 Package pdftex.def Info: images/cats.png  used on input line 272.
 (pdftex.def)             Requested size: 426.79134pt x 91.01047pt.
  [8 <./images/cats.png>]
-<images/inceptionlayer.png, id=236, 722.7pt x 355.3275pt>
+<images/inceptionlayer.png, id=240, 722.7pt x 355.3275pt>
 File: images/inceptionlayer.png Graphic file (type png)
 <use images/inceptionlayer.png>
 Package pdftex.def Info: images/inceptionlayer.png  used on input line 286.
 (pdftex.def)             Requested size: 341.43306pt x 167.87143pt.
-<images/canny.png, id=237, 813.585pt x 418.29pt>
+<images/canny.png, id=241, 813.585pt x 418.29pt>
 File: images/canny.png Graphic file (type png)
 <use images/canny.png>
 Package pdftex.def Info: images/canny.png  used on input line 298.
@@ -937,7 +937,7 @@ Overfull \hbox (7.99904pt too wide) in paragraph at lines 332--333
  []
 
 [10] [11]
-<images/monolith1.png, id=253, 1285.53pt x 682.7325pt>
+<images/monolith1.png, id=257, 1285.53pt x 682.7325pt>
 File: images/monolith1.png Graphic file (type png)
 <use images/monolith1.png>
 Package pdftex.def Info: images/monolith1.png  used on input line 380.
@@ -947,13 +947,13 @@ Overfull \hbox (11.22217pt too wide) in paragraph at lines 387--388
 \T1/cmr/m/n/10.95 OpenCV. The application layer is responsible for all the data preprocessing and all auxiliary functionalities
  []
 
-<images/googlenet.png, id=254, 1239.63126pt x 315.1775pt>
+<images/googlenet.png, id=258, 1239.63126pt x 315.1775pt>
 File: images/googlenet.png Graphic file (type png)
 <use images/googlenet.png>
 Package pdftex.def Info: images/googlenet.png  used on input line 396.
 (pdftex.def)             Requested size: 455.24408pt x 115.74338pt.
 [12 <./images/monolith1.png> <./images/googlenet.png (PNG copy)>]
-<images/monolith2.png, id=261, 1116.3525pt x 578.16pt>
+<images/monolith2.png, id=265, 1116.3525pt x 578.16pt>
 File: images/monolith2.png Graphic file (type png)
 <use images/monolith2.png>
 Package pdftex.def Info: images/monolith2.png  used on input line 411.
@@ -964,66 +964,66 @@ Overfull \hbox (17.4799pt too wide) in paragraph at lines 421--422
  []
 
 [13 <./images/monolith2.png>]
-<images/mlp.png, id=267, 2303.60625pt x 1454.43375pt>
+<images/mlp.png, id=271, 2303.60625pt x 1454.43375pt>
 File: images/mlp.png Graphic file (type png)
 <use images/mlp.png>
-Package pdftex.def Info: images/mlp.png  used on input line 436.
+Package pdftex.def Info: images/mlp.png  used on input line 442.
 (pdftex.def)             Requested size: 227.62204pt x 143.69865pt.
  [14] [15 <./images/mlp.png>]
-<images/confusionclass.png, id=276, 651.93562pt x 371.3875pt>
+<images/confusionclass.png, id=280, 651.93562pt x 371.3875pt>
 File: images/confusionclass.png Graphic file (type png)
 <use images/confusionclass.png>
-Package pdftex.def Info: images/confusionclass.png  used on input line 466.
+Package pdftex.def Info: images/confusionclass.png  used on input line 472.
 (pdftex.def)             Requested size: 256.0748pt x 145.88324pt.
  [16 <./images/confusionclass.png>]
-<images/gnetrecall.png, id=282, 462.528pt x 346.896pt>
+<images/gnetrecall.png, id=286, 462.528pt x 346.896pt>
 File: images/gnetrecall.png Graphic file (type png)
 <use images/gnetrecall.png>
-Package pdftex.def Info: images/gnetrecall.png  used on input line 504.
+Package pdftex.def Info: images/gnetrecall.png  used on input line 510.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/gnetprec.png, id=283, 462.528pt x 346.896pt>
+<images/gnetprec.png, id=287, 462.528pt x 346.896pt>
 File: images/gnetprec.png Graphic file (type png)
 <use images/gnetprec.png>
-Package pdftex.def Info: images/gnetprec.png  used on input line 505.
+Package pdftex.def Info: images/gnetprec.png  used on input line 511.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/gnetf1.png, id=284, 462.528pt x 346.896pt>
+<images/gnetf1.png, id=288, 462.528pt x 346.896pt>
 File: images/gnetf1.png Graphic file (type png)
 <use images/gnetf1.png>
-Package pdftex.def Info: images/gnetf1.png  used on input line 507.
+Package pdftex.def Info: images/gnetf1.png  used on input line 513.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
  [17 <./images/gnetrecall.png> <./images/gnetprec.png>]
-<images/htrecall.png, id=291, 462.528pt x 346.896pt>
+<images/htrecall.png, id=295, 462.528pt x 346.896pt>
 File: images/htrecall.png Graphic file (type png)
 <use images/htrecall.png>
-Package pdftex.def Info: images/htrecall.png  used on input line 527.
+Package pdftex.def Info: images/htrecall.png  used on input line 533.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/htprec.png, id=292, 462.528pt x 346.896pt>
+<images/htprec.png, id=296, 462.528pt x 346.896pt>
 File: images/htprec.png Graphic file (type png)
 <use images/htprec.png>
-Package pdftex.def Info: images/htprec.png  used on input line 528.
+Package pdftex.def Info: images/htprec.png  used on input line 534.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/htf1.png, id=293, 462.528pt x 346.896pt>
+<images/htf1.png, id=297, 462.528pt x 346.896pt>
 File: images/htf1.png Graphic file (type png)
 <use images/htf1.png>
-Package pdftex.def Info: images/htf1.png  used on input line 530.
+Package pdftex.def Info: images/htf1.png  used on input line 536.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
  [18 <./images/gnetf1.png> <./images/htrecall.png> <./images/htprec.png> <./images/htf1.png>]
-<images/f1compare.png, id=303, 1026.234pt x 416.9979pt>
+<images/f1compare.png, id=307, 1026.234pt x 416.9979pt>
 File: images/f1compare.png Graphic file (type png)
 <use images/f1compare.png>
-Package pdftex.def Info: images/f1compare.png  used on input line 550.
+Package pdftex.def Info: images/f1compare.png  used on input line 556.
 (pdftex.def)             Requested size: 455.24408pt x 184.98128pt.
 
-Overfull \hbox (10.88005pt too wide) in paragraph at lines 561--562
+Overfull \hbox (10.88005pt too wide) in paragraph at lines 567--568
 \T1/cmr/m/n/10.95 and 17.03% respective. Overall accuracy improvement is at 17.01%. This is a very noticeable improvement
  []
 
 [19 <./images/f1compare.png>] [20]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 575.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 590.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 575--576
+Underfull \hbox (badness 10000) in paragraph at lines 590--591
 []\T1/cmr/m/n/10.95 Programiz, \T1/cmr/m/it/10.95 "Greedy Algorithm"\T1/cmr/m/n/10.95 , Available at: []$\T1/cmtt/m/n/10.95 https : / / www . programiz . com / dsa /
  []
 
@@ -1037,21 +1037,21 @@ L3 programming layer <2024-02-20>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: AE82DD03B2E24C195EB1CD8AAFBF5D42;5812.
+(rerunfilecheck)             Checksum: BE5302C96C3D355148221B929D67EC3B;5944.
  ) 
 Here is how much of TeX's memory you used:
- 12387 strings out of 474116
- 194898 string characters out of 5743682
+ 12389 strings out of 474116
+ 194938 string characters out of 5743682
  1939187 words of memory out of 5000000
- 34508 multiletter control sequences out of 15000+600000
+ 34509 multiletter control sequences out of 15000+600000
  573651 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,8n,79p,1552b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on report.pdf (22 pages, 6993663 bytes).
+Output written on report.pdf (22 pages, 6943028 bytes).
 PDF statistics:
- 411 PDF objects out of 1000 (max. 8388607)
- 309 compressed objects within 4 object streams
- 63 named destinations out of 1000 (max. 500000)
- 372 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 415 PDF objects out of 1000 (max. 8388607)
+ 314 compressed objects within 4 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 380 words of extra memory for PDF output out of 10000 (max. 10000000)
 

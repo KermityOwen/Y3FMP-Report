@@ -22,7 +22,7 @@
 
 \begin{document}
 
-\title{Handmark - A Pose-Estimation Approach to a Visual-Manual Interface and ASL Interpreter}
+\title{OpenHandmark - A Pose-Estimation Approach to a Visual-Manual Interface and ASL Interpreter}
 \author{Chai Wang Owen Lee}
 
 \date{April, 2024}
@@ -48,12 +48,12 @@
 
 \pagebreak
 \section{Introduction}
-    Visual-manual languages (or signed languages) are languages that are primarily used by the deaf and speech-impaired communities to communicate. These languages utilize hand signals and other visual parameters to interact with individuals who are unable to use sound-based mediums to communicate. This project introduces a multi-purpose real-time visual-manual interface (open-handmark); including but not limited to, a sign language interpreter. The project will focus on developing the interface and to purpose it for the use of ASL interpretation.
+    Visual-manual languages (or signed languages) are languages that are primarily used by the deaf and speech-impaired communities to communicate. These languages utilize hand signals and other visual parameters to interact with individuals who are unable to use sound-based mediums to communicate. This project introduces a multi-purpose real-time visual-manual interface (OpenHandmark); including but not limited to, a sign language interpreter. The project will focus on developing the interface and to purpose it for the use of ASL interpretation.
     
     In the real-time translation of an auditory language, the most complex part of the interpretation process is the interface between speech and a digitally representable medium (in this case, words). As for a visual-manual language, this too is the most complex and essential part of the interpretation process. This is a particularly difficult challenge due to the lack of a digitally representable medium for ASL. Also due to the different phonological parameters of signed language (movement, facial expressions, palm orientation, etc). This provides a very unique challenge that cannot be tackled by a straight forward solution. This diagram below illustrates that specific challenge:
 
     \begin{center}
-        \includegraphics[width=9cm]{audVsVM.png}
+        \includegraphics[width=13cm]{audVsVM.png}
         \\
         \raggedright \textit{
         Figure 1: Temporary diagram showcasing the pipeline of auditory language translation vs visual-manual language translation.
@@ -142,7 +142,7 @@
     This section will provide the project's goals and motivation, a high-level architecture of the program(s), a breakdown of requirements, and an evaluation method.
 
     \subsection{Project Goals and Motivation}
-        Even though we have such a large deaf or hard of hearing population around the world, the lack of digitized support for these people is disheartening to say the least. This project strives to design an architecture for a sign language interpreter using both existing technologies and techniques invented specifically for this project. This project is also a comparative study between the custom visual-manual interface developed in this project (HandMark) vs a traditional image classifier approach.
+        Even though we have such a large deaf or hard of hearing population around the world, the lack of digitized support for these people is disheartening to say the least. This project strives to design an architecture for a sign language interpreter using both existing technologies and techniques invented specifically for this project. This project is also a comparative study between the custom visual-manual interface developed in this project (OpenHandmark) vs a traditional image classifier approach.
     
     \subsection{Project Overview (ASL Interpreter)}
         This subsection will contain a high-level design of a working visual-manual interface. This interface can be used for many purpose; for this project, the goal is a proof-of-concept sign language interpreter with scalable phonological parameters. The sign language used for this project will be ASL, due to its popular nature and the ease of access for its learning resources. 
@@ -228,7 +228,7 @@
             
             \hline
             \hline
-                \multicolumn{2}{| l |}{\textit{HandMark Approach}} \\ [0.2cm]
+                \multicolumn{2}{| l |}{\textit{OpenHandmark's Approach}} \\ [0.2cm]
                 \hline
                 Implement Hand Landmarker & Implement the hand pose estimation program with MediaPipe or OpenPose.\\ [0.7cm]
                 \hline
@@ -423,9 +423,15 @@
     The landmarking module has 2 main functions - extracting landmarks, and rendering landmarks. Extracting landmarks is relatively simple as it simply takes in an image, processes it as a MediaPipe matrix then running the inference and returning the results. Rendering landmarks was especially tricky due to the complete lack of documentation regarding the formatting of the model's output. Rendering landmark was done using the help of OpenCV.
 
         \subsubsection{Data Preprocessing}
-    The dataset used here is the same dataset collected from Kaggle from the subsection above. The main goal of the data preprocessing here is to match each image with label and every coordinate of every joints located within said image. There are 3 new main functions within this module - extracting landmarks and labelling csv from dataset, preprocessing csv, splitting annotations into testing and training sets. Dataset fed into this model has already been flattened using previous model's preprocessing module. First, labelling\_csv() creates a pandas dataframe containing 45 columns - image name, label, handedness (left or right), and 21 pairs of coordinates (x and y of landmarks). Each image is then iteratively feature extracted using the landmarking module, parsed, normalized and then mapped onto the dataframe. Normalisation process was explained in the architecture section above (section 4.3). 
+    The dataset used here is the same dataset collected from Kaggle from the subsection above. The main goal of the data preprocessing here is to match each image with label and every coordinate of every joints located within said image. There are 3 new main functions within this module - extracting landmarks and labelling csv from dataset, preprocessing csv, splitting annotations into testing and training sets. 
     
-    The second part of the module revolves around preprocessing the annotated data. There are 3 main tasks in this function - NaN purging, undersampling and changing label ranges. NaN purging is simply dropping all rows that contains NaN values. Sometimes the landmarker will forego a certain end joint if the finger or base of the palm extends beyond the screen; also, if the landmarker fails to detect a hand the coordinate columns for that row will also fill with NaNs. Undersampling is the process of removing random rows within certain groups to balance the amount of rows each group occupies. This is done to remove imbalance and prevent our neural network from skewing to the more prevalent class. This will result in data loss but it is negligable as post undersampling still results in around 110,000 total entries. Lastly, changing data range is simply compressing the hash established earlier. For example, integer casting the character `A' will result in 65 which will be labeled as 0 since its the smallest number in the label set (B is 1 instead of 66, so on so forth).
+    \paraskip
+
+    \noindent\textbf{Annotating Landmarks: } Dataset fed into this model has already been flattened using previous model's preprocessing module. First, labelling\_csv() creates a pandas dataframe containing 45 columns - image name, label, handedness (left or right), and 21 pairs of coordinates (x and y of landmarks). Each image is then iteratively feature extracted using the landmarking module, parsed, normalized and then mapped onto the dataframe. Normalisation process was explained in the architecture section above (section 4.3). 
+    
+    \paraskip
+
+    \noindent\textbf{Preprocessing Annotations: } The second part of the module revolves around preprocessing the annotated data. There are 3 main tasks in this function - NaN purging, undersampling and changing label ranges. NaN purging is simply dropping all rows that contains NaN values. Sometimes the landmarker will forego a certain end joint if the finger or base of the palm extends beyond the screen; also, if the landmarker fails to detect a hand the coordinate columns for that row will also fill with NaNs. Undersampling is the process of removing random rows within certain groups to balance the amount of rows each group occupies. This is done to remove imbalance and prevent our neural network from skewing to the more prevalent class. This will result in data loss but it is negligable as post undersampling still results in around 110,000 total entries. Lastly, changing data range is simply compressing the hash established earlier. For example, integer casting the character `A' will result in 65 which will be labeled as 0 since its the smallest number in the label set (B is 1 instead of 66, so on so forth).
 
     The last part of the module simply splits the annotations into a training and testing set by a ratio of 10 to 1 respectively. There are also auxiliary functions, most notably to fetch additional information for data analysis like showing class distributions, etc.
 
@@ -448,7 +454,7 @@
     The interfaces are contained within the vision.py module. The vision module implements various streaming interfaces using a video camera initialized via OpenCV. The camera allows us to use the video stream's individual frames for symbol classification, and even cross frame processing for motion detection and buffering. There are many streaming interfaces within this module; the one used for our final application is stream\_translation\_interface. 
 
     \paraskip
-    \noindent\textbf{Application Interface: } This purpose of this interface is to output a full array of text based on tokens (previously defined in section 4.4). On every frame a symbol prediction will be made and will be logged into an buffering array, this buffering array will be used to make a true prediction. The buffering array works as a FIFO queue; if the queue is currently full, the latest prediction will enter the queue as the earliest prediction will exit. A true prediction is made on every frame based on the most frequent prediction within the prediction buffer. True prediction and true motion will be used as terms descibing the actual prediction and motions returned from the interface as tokens. The direction will be tracked using the method stated in section 4.3. After each frame's direction is calculated, it will, like symbol predictions, enter a buffering array. This motion buffer array will be used to calculate the true motion of the hand by logging every direction that composes more than 30\% of the whole buffer. The true motion, unlike true prediction, will only be calculated and logged as token when the true prediction changes. The output of this particular interface will be a sentence made out of tokens, formatted like: $sentence = [token]$, $token = [symbol, [directions]]$.
+    \noindent\textbf{Main Interface: } This purpose of this interface is to output a full array of text based on tokens (previously defined in section 4.4). On every frame a symbol prediction will be made and will be logged into an buffering array, this buffering array will be used to make a true prediction. The buffering array works as a FIFO queue; if the queue is currently full, the latest prediction will enter the queue as the earliest prediction will exit. A true prediction is made on every frame based on the most frequent prediction within the prediction buffer. True prediction and true motion will be used as terms descibing the actual prediction and motions returned from the interface as tokens. The direction will be tracked using the method stated in section 4.3. After each frame's direction is calculated, it will, like symbol predictions, enter a buffering array. This motion buffer array will be used to calculate the true motion of the hand by logging every direction that composes more than 30\% of the whole buffer. The true motion, unlike true prediction, will only be calculated and logged as token when the true prediction changes. The output of this particular interface will be a sentence made out of tokens, formatted like: $sentence = [token]$, $token = [symbol, [directions]]$.
 
     \paraskip
     \noindent\textbf{Other Interfaces: } There are other intefaces within this module as well. For example, there is an I/O interface for typing by signing letters, a benchmarking interface for symbol inference speed analysis, et cetera. As useful as these interfaces are, it is important to note none of these interfaces are used in the final application for this project.
@@ -562,11 +568,20 @@
 
         Now onto the speed metrics, which is the main determining factor of scalability and real-time uses. The training time for each model is incomparbly large; there is around a 693333\% improvement between 52 hours (GoogLeNet) vs 27 seconds (My model). It is HIGHLY infeasible to continuously retrain GoogLeNet to add new symbol and features compared to my model. The inference time per frame is also a substantial improvement from GoogLeNet to my model, there is a 37.5\% increase in speed.
 
-\section{Critical Analysis of Project}
-    Explain Limitations of project, scoping issue, and what could've been done better
-
 \section{Conclusion}
-    Conclude and show additional applications (gamification)
+    \subsection{Critical Analysis of Limitations}
+    There are 2 main types of limitations to this project - developmental limitations, and feature limitations. Developmental limitations are the limitations imposed during development of the project, and feature limitations are potential unimplemented features (additional scope) that because of time and resource restraint has not been achieved in this project.
+
+    \paraskip
+
+    \noindent\textbf{Developmental Limitations: } The major noticeable limitation to development is the poor quality training data. The dataset collected from Kaggle (which was the best one available), had many images that were functionally duplicates of each other. Within every class there will be groups of images with virtually no deviance between them. There is also a problem with certain classes having the hands shot from a single angle making inferences less accurate in more complex poses. Another limitation is the fact that every hand pose is classified into a category. This can be mediated by implementing an lower limit to the output score; if no classes have an output score above the limit it should classify as `unknown'.
+
+    \paraskip
+
+    \noindent\textbf{Feature Limitations: } There are a few main unimplemented features that could be implemented to improve ASL translation. The translation process could be replaced from an explicit one to a deep learning one. A palm orientation tracker could could allow for more diverse movement (such as palm rotations) and more accurate classification (through rotational normalisation). Scaling to other phonological parameters with technologies such as a one-look hand + facial landmarking model. The possibilities are endless but realistically those would be the first steps to take towards a better ASL translator.
+
+    \subsection{Conclude}
+    The applications of a visual manual interface is limitless, we could create educational tools for signed languages through gamification, we could create futuristic I/O devices for virtual reality. A fully documented open sourced version of the application will be hosted on my GitHub. This will hopefully allow for future research and innovations built upon OpenHandmark to improve the livelyhoods of people.
 
 
 \pagebreak 
