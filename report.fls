@@ -231,11 +231,6 @@ INPUT ./images/predOverTime.png
 INPUT ./images/predOverTime.png
 INPUT ./images/predOverTime.png
 INPUT ./images/predOverTime.png
-INPUT ./images/confusionclass.png
-INPUT ./images/confusionclass.png
-INPUT ./images/confusionclass.png
-INPUT ./images/confusionclass.png
-INPUT ./images/confusionclass.png
 INPUT ./images/cats.png
 INPUT ./images/cats.png
 INPUT ./images/cats.png
@@ -275,6 +270,11 @@ INPUT ./images/mlp.png
 INPUT ./images/mlp.png
 INPUT ./images/mlp.png
 INPUT ./images/mlp.png
+INPUT ./images/confusionclass.png
+INPUT ./images/confusionclass.png
+INPUT ./images/confusionclass.png
+INPUT ./images/confusionclass.png
+INPUT ./images/confusionclass.png
 INPUT ./images/gnetrecall.png
 INPUT ./images/gnetrecall.png
 INPUT ./images/gnetrecall.png

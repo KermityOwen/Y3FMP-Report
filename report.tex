@@ -22,7 +22,7 @@
 
 \begin{document}
 
-\title{Real-Time Dynamic Visual-Manual Interface With Scalable Phonological Parameters - A Proof of Concept}
+\title{Handmark - A Pose-Estimation Approach to a Visual-Manual Interface and ASL Interpreter}
 \author{Chai Wang Owen Lee}
 
 \date{April, 2024}
@@ -48,9 +48,8 @@
 
 \pagebreak
 \section{Introduction}
-    Visual-manual languages (or signed languages) are languages that are primarily used by the deaf and speech-impaired communities to communicate. These languages utilize hand signals and other visual parameters to interact with individuals who are unable to use sound-based mediums to communicate. Amongst these languages is the American Sign Language (ASL), a signed language primarily used in the deaf communities of the United States of America and Anglophone Canada. ASL will be the primary signed language used for this project. These signed languages are vital to the enabling of social interactions within these communities. One problem with these signed languages is the lack of real-time interpretation options.
-
-    \paraskip
+    Visual-manual languages (or signed languages) are languages that are primarily used by the deaf and speech-impaired communities to communicate. These languages utilize hand signals and other visual parameters to interact with individuals who are unable to use sound-based mediums to communicate. This project introduces a multi-purpose real-time visual-manual interface (open-handmark); including but not limited to, a sign language interpreter. The project will focus on developing the interface and to purpose it for the use of ASL interpretation.
+    
     In the real-time translation of an auditory language, the most complex part of the interpretation process is the interface between speech and a digitally representable medium (in this case, words). As for a visual-manual language, this too is the most complex and essential part of the interpretation process. This is a particularly difficult challenge due to the lack of a digitally representable medium for ASL. Also due to the different phonological parameters of signed language (movement, facial expressions, palm orientation, etc). This provides a very unique challenge that cannot be tackled by a straight forward solution. This diagram below illustrates that specific challenge:
 
     \begin{center}
@@ -61,20 +60,27 @@
         }
     \end{center}
 
-    This project aims to alleviate these challenges by designing and developing a scalable visual-manual interface using a multitude of approaches. This report will document the problem solving, design, development, and analysis of a program designed to overcome the challenges of a digital visual-manual interface for signed language interpretation.
+    This project aims to alleviate these challenges by designing and developing an scalable visual-manual interface using a multitude of approaches. This report will document the problem solving, design, development, and analysis of a program designed to overcome the challenges of said interface for signed language interpretation.
 
 
 \section{Pre-requisites Knowledges}
     This section will provide most of the technical prerequisite knowledge to understanding the approaches to the design on the program and the implementation of the program itself. This section will only include a very brief and high level explanation of the concepts at hand.
 
     \subsection{American Sign Language}
-        There are approximately 70 million deaf people worldwide, who collectively use over 300 signed languages. Amongst those communities, the American Sign Language (ASL) is commonly accepted as a lingua franca (common language), with many deaf individuals learning ASL as a secondary language as a means to communicate with deaf people from different countries / communities. Over 500,000 people in the United States of America (USA) use ASL as their native language; this statistic does not even include non-native (second language) users of ASL or native users of ASL outside of the USA (such as Canada). 
+        There are approximately 70 million deaf people worldwide, who collectively use over 300 signed languages. Amongst those communities, the American Sign Language (ASL) is commonly accepted as a lingua franca (common language), with many deaf individuals learning ASL as a secondary language as a means to communicate with deaf people from different countries / communities. Over 500,000 people in the United States of America (USA) use ASL as their native language; this statistic does not even include non-native (second language) users of ASL or native users of ASL outside of the USA (such as Canada). These signed languages are vital to the enabling of social interactions within these communities. 
+
         \paraskip
 
         \noindent\textbf{Lack of Digital Support:} Even with such a large userbase, ASL (or any signed language for that matter) severly lacks digital language support. According a study conducted by ACL Anthology - ”Assessing Digital Language Support on a Global Scale”, ASL is on the ”Emerging” category. This means the language has some content in digital form (mainly videos on social media or educational platforms), but lacks programs for machine interpretation.
+
         \paraskip
 
         \noindent\textbf{Lack of Writing System:} Lastly, ASL (or most signed language for that matter) does not have a common writing system. There have been attempts to develop a written interface for ASL, such as ASLWrite, but unfortunately has not been widely adapted by the deaf community.
+
+        \paraskip
+
+        \noindent\textbf{Phonological Parameters:} ASL, like most other sign languages, have parameter other than hand shape to form words. These are known as phonological parameters; these include factors such as hand movement, referential locations, facial expression, etc. This makes developing a digital ASL translator a highly complicated problem. 
+
 
     \subsection{Deep Learning Approach (ConvNet)}
         Convolutional Neural Networks (AKA ConvNets or CNNs) are a type of deep learning neural network that specialises in image processing tasks. The main difference between ConvNets and a vanilla neural networks is the ConvNet's ability to maintain spacial relations and dimentional information. This is due to the ConvNet not flattening the data before feature extraction. ConvNets are built with many different types of layers - convolution layers (feature extraction), pooling layers (compression) and ReLU layers (activation function).
@@ -136,14 +142,14 @@
     This section will provide the project's goals and motivation, a high-level architecture of the program(s), a breakdown of requirements, and an evaluation method.
 
     \subsection{Project Goals and Motivation}
-        Even though we have such a large deaf or hard of hearing population around the world, the lack of digitized support for these people is disheartening to say the least. Traditionally, such a complex task (of sign language interpretation) was nigh impossible given both the hardware and software limitations; however, in this day and age, with all the new technologies of the modern day this task is not as daunting as it used to be. This project strives to design an architecture for a sign language interpreter using both existing technologies and techniques invented specifically for this pipeline.
+        Even though we have such a large deaf or hard of hearing population around the world, the lack of digitized support for these people is disheartening to say the least. This project strives to design an architecture for a sign language interpreter using both existing technologies and techniques invented specifically for this project. This project is also a comparative study between the custom visual-manual interface developed in this project (HandMark) vs a traditional image classifier approach.
     
-    \subsection{Problem-Solving and Project Design}
-        This subsection will contain a high-level design of the final model used to develop a working proof-of-concept for a sign language interpreter. The sign language used for this project will be ASL, due to its popular nature and its learning resource's ease of access. 
+    \subsection{Project Overview (ASL Interpreter)}
+        This subsection will contain a high-level design of a working visual-manual interface. This interface can be used for many purpose; for this project, the goal is a proof-of-concept sign language interpreter with scalable phonological parameters. The sign language used for this project will be ASL, due to its popular nature and the ease of access for its learning resources. 
 
-        The mission to interpret ASL is a very complex task. A simple approach commonly taken is to classify an image using various methods to translate into words; however, this is not a viable solution scalable into practical usage. This is due to the many phonological parameters of ASL that go beyond static hand symbols. These parameters make it too complex for a simple deep learning model, and therefore, require the breakdown of certain objectives and explicit feature extractions. The pipeline designed and built for this project will not be the `end-all, be-all' of signed language translators, but will hopefully set up a framework of how future signed language translators can work. The project proposes a new customised pipeline to ultimately achieve an ASL interpreter capable of real-time classifying hand-poses with dynamic movements. 
+        \paraskip
 
-        Firstly, a static symbol classifier is the basis of all visual-manual interpreters, also one of the most simple ways to create one. This approach first takes in an image as input, then uses a ConvNet to classify the image based on what symbol the hand is making. Although this model may be very easy to develop, its accuracy is heavy swayed and affected by background change, finger occlusion and training data inconsistancies. Hand landmarking technology alleviates these problems by extracting joint and limb features then using those explicit features to classify into a symbol. This diagram illustrates this model:
+        \noindent\textbf{Static Symbol Classifier: } A static symbol classifier is the basis of a visual-manual interpreters. This approach first takes in an image as input, then uses a ConvNet or similar neural networks to classify the image based on what symbol the hand is making. Although this model may be very easy to develop, its accuracy is heavy swayed and affected by background change, finger occlusion and training data inconsistancies. Hand landmarking technology alleviates these problems by extracting joint and limb features then using those explicit features to classify into a symbol. This diagram illustrates this model:
 
         \begin{center}
             \includegraphics[width=12cm]{images/staticModel.png}
@@ -153,7 +159,15 @@
             }
         \end{center}
 
-        The problem with the model above is its incapability to read the phonological parameter of movement, therefore we need to alter the pipeline. Utilizing hand landmarking technology, we can determine the position of the hand at each individual frame. This stream of coordinates can be used to calculate the direction(s) of the hands motion using displacement vectors. With the symbols extracted through a ConvNet and the motion of the hands detected, these can now be grouped together to form a digitally comprehensible written representation. To better understand this, let's use the example of the ASL word - `hello'. `Hello' is formed by an open palm (same sign as the letter B), in a left to right motion; the same way you would typically wave. The model will detect through multiple static frame the letter B, then it will detect the motion of the hand based on how the coordinates of the palm is displaced. The model will then output the information formatted like so, `$A \leftarrow \rightarrow$'.
+        The problem with the model above is its incapability to read other phonological parameter, therefore we need to alter the pipeline. 
+        
+        \paraskip
+
+        \noindent\textbf{Landmarking Approach: } Utilizing hand landmarking technology, we can determine the position of the hand and its respective joints within each individual frame. This stream of coordinates can be used to for many things, such as, calculate the direction(s) of the hands motion using displacement vectors. This group of coordinates can even be used for classifying the symbols themselves.
+
+        \paraskip
+
+        \noindent\textbf{Scaling with Phonological Parameters: } With the symbols extracted and the motion of the hands detected, these can now be grouped together to form a digitally comprehensible written representation. To better understand this, let's use the example of the ASL word - `hello'. `Hello' is formed by an open palm (same sign as the letter B), in a left to right motion; the same way you would typically wave. The model will detect through multiple static frame the letter B, then it will detect the motion of the hand based on how the coordinates of the palm is displaced. The model will then output the information formatted like so, `$A \leftarrow \rightarrow$'.
 
         \begin{center}
             \includegraphics[width=12cm]{images/nonstaticModel.png}
@@ -163,11 +177,14 @@
             }
         \end{center}
         
-        This solution of having a written medium with extracted features as respective characters is scalable to any sign language, granted there is a way to represent all its local phonological parameters. Due to time constraints and to prevent scope bloat, the program will only include 2 of the most important phonological parameter - hand pose and hand movement.
+        This solution of having a written medium with extracted features represented as respective characters can be scaled to any phonological parameters, granted they can be digitally representable. Due to time constraints, and as this is only a proof-of-concept, the program will only include 2 of the most important phonological parameter - hand pose and hand movement.
 
-        The next problem we encounter is how predictions and results from multiple frames can interact with each other to form a word. This problem arises from the model having no idea when to seperate a symbol from another. Assume the model predicting a single pose runs at 12 frames per seconds, if every frame's prediction is logged, every second you will get 12 of the same symbols logged when in reality only 1 symbol should be logged. A simple solution would be to simple condense all repeating symbols into a single one (e.g. AAABBAAA -> ABA); however, this solution would only work granted a near $100\%$ accuracy rate as any prediction error over a held pose will result in an overall inaccurate word.
+        \paraskip
+
+        \noindent\textbf{Symbol Condensation: }
+        A problem we encounter is how predictions and results from multiple symbols can interact with each other to form a word. This problem arises from the model having no idea when to seperate a symbol from another. Assuming the model runs inferences on 12 frames per second, if every frame's prediction is considered, the output will be 12 symbols. This is a problem as a single hand pose could be held for longer than $1/12_{th}$ of a second. An algorithm will have to be designed to condense these outputs. A simple solution would be to simply condense all repeating symbols into a single one (e.g. AAABBAAA -> ABA); however, this solution would only work granted a near $100\%$ accuracy rate as any prediction error over a held pose will cause inaccuracy flickers (e.g. AAASAASAA -> ASASA which is unintended). 
         
-        A custom 2-step algorithm I call condensed probability over time can solve this symbol segmentation issue, even over inaccuracy flickers. Over a video or stream, each frame's symbol prediction will be appended to a first-in-first-out queue. We assign a buffer value which will be the queue's length, whenever the queue is full (when the next frame is processed), the first prediction inserted will be popped. On any given frame, the current true prediction will be most common element in the queue. This will eliminate the problem of requiring $100\%$ accuracy to use the simple condensing solution suggested above. The simple condensing algorithm proposed in the paragraph above is then applied to the true prediction stream, giving us a successful segmented sentence.
+        Therefore, a custom 2-step algorithm leveraging temporal information can be used to stablize inaccuracies and condense symbols overall. Over a video or stream, each frame's symbol prediction will be appended to a first-in-first-out queue. We assign a buffer value which will be the queue's length, whenever the queue is full (when the next frame is processed), the first prediction inserted will be popped. On any given frame, the current true prediction will be most common element in the queue. This will eliminate the problem of requiring $100\%$ accuracy to use the simple condensing solution suggested above. The simple condensing algorithm proposed in the paragraph above is then applied to the true prediction stream, giving us a successful segmented sentence.This algorithm can solve this symbol segmentation issue, even over inaccuracy flickers. 
 
         \begin{center}
             \includegraphics[width=12cm]{images/predOverTime.png}
@@ -177,13 +194,9 @@
             }
         \end{center}
 
-        However, the problem still persists with the direction detector module. We could calculate and predict a direction between every 2 frames, but again assuming the hand moves in a constant pace leftwards, over 12 frames we will get 11 results of leftward movement. Furthermore, if we need to track a symbol's compounded movements (e.g. waving from left to right), we would need a way to assign movements to the symbol. The solution used here is similar to the solution above albeit more complex: First we seperate all the movements within the period of a symbol being held (using true prediction as stated above), then use this array of movements to calculate the distributions of the directions moved over the frame, if the percentage of a directions appearance is over a certain limit it is then appended to the symbol before being outputted. Therefore with these parts together these stream of images can be formed into words in the structure of - `Symbol, Directions'.
-
-        These words formed of these characters can then be translated using a simple translator (e.g. `$B \leftarrow \rightarrow$' translating to `Hello'). For the sake of simplicity and since it is not the focus of the project, the program simply uses a hashmap translator for fast translation.
-
 
     \subsection{Ethical and Societal Considerations}
-        Due to the fact that I am not deaf or fluent in ASL, I do not have complete insight and understanding of the full nuances of the language, nor am I a part of the deaf community in discussion. To prevent myself from inappropriately representing the language, this project will only be a \textbf{proof of concept} utilizing a select few words and letters from the visual-manual dictionary of ASL. The idea behind the digital ASL script is also merely a concept used as a way to scale to all its complex parameters beyond movement and posture. Last disclaimer, I am in no way trying to culturally appropriate the subject at hand and this study, if proved to be useful, should be pursued further alongside an ASL expert or members of the deaf community.
+        Due to the fact that I am not deaf or fluent in ASL, I do not have complete insight and understanding of the full nuances of the language, nor am I a part of the deaf community in discussion. To prevent myself from inappropriately representing the language, this project will only be a \textbf{proof-of-concept} utilizing a select few words and letters from the dictionary of ASL. The idea behind a digital ASL medium is also just a concept used for scaling the model to ASL's complex parameters beyond movement and posture. I am in no way trying to culturally appropriate the subject at hand; this study, if proved to be useful, should be pursued further alongside an ASL expert or members of the deaf community.
 
     \subsection{Project Tasks}
         A breakdown of the tasks at hand.
@@ -200,68 +213,60 @@
 
             \hline
             \hline
-                \multicolumn{2}{| l |}{\textit{Static ASL Interpreter}} \\ 
+                \multicolumn{2}{| l |}{\textit{ConvNet Approach}} \\ [0.2cm]
                 \hline
-                Data Preprocessing & Readying the training and validation datasets to be in a standard readable format for both programs. \\
+                Data Preprocessing & Readying the training and validation datasets to be in a standard readable format for both programs. \\ [0.7cm]
                 \hline
-                Implement and Train ConvNet Image Classifier & Implement an image classifier using a ConvNet architecture. \\
+                Implement a ConvNet Image Classifier & Implement an image classifier using a ConvNet architecture. \\ [0.7cm]
                 \hline
-                Implement Hand Estimation and Normalisers & Implement the hand pose estimation program with MediaPipe or OpenPose and automate the normalisation of the output data. \\
-                \hline 
-                Implement and Train Hand Tracking Classifier Model & Implement and train the classifier on the post pose estimated dataset to recognise ASL alphabet. \\
+                Train Classifier & Train the ConvNet. \\ [0.7cm]
                 \hline
-                Implement Real-Time Demo & Implement a real-time demo using OpenCV to process and classify images coming from a stream. \\
+                Symbol Condenser & Uses the custom 2-step algorithm designed above to stablize and condense symbol predictions. \\ [0.7cm]
+                \hline
+                Implement Real-Time Demo & Implement a real-time demo using OpenCV to process and classify images coming from a stream. \\ [0.7cm]
             \hline
             
             \hline
             \hline
-                \multicolumn{2}{| l |}{\textit{Dynamic ASL Interpreter}} \\ 
+                \multicolumn{2}{| l |}{\textit{HandMark Approach}} \\ [0.2cm]
                 \hline
-                Motion Tracker & Uses optical flow algorithms or other methods to determine the motion of the palm in regards to multiple consecutive frames. \\
+                Implement Hand Landmarker & Implement the hand pose estimation program with MediaPipe or OpenPose.\\ [0.7cm]
                 \hline
-                Probability/Time Based Segmenter & Uses the direction and symbol prediction rate over multiple frames to segment words from one another. \\
+                Landmark Normalizer & Automate the normalisation of the output data. \\ [0.7cm]
+                \hline 
+                Data Preprocessing & Running the dataset through the landmarker and normalizer, annotating every hand and its joints. \\ [0.7cm]
                 \hline
-                Sign Typing Interface & Implement an interface that shows ASL word is currently being signed. \\
+                Implement Landmark Classifier Model & Implement a neural network for the post-processed dataset to recognise ASL alphabet. \\ [0.7cm]
+                \hline 
+                Train Landmark Classifier Model & Train the classifier on the post-processed dataset to recognise ASL alphabet. \\ [0.7cm]
+                \hline
+                Motion Tracker & Module to determine the motions of the hand throughout a video or stream. \\ [0.7cm]
+                \hline
+                Word Formation Algorithm & Uses the symbol condenser and other methods to form words based on motion and symbol segmentation. \\ [0.7cm]
+                \hline
+                Sign Language Translator & Implements an typing interface that allows complex ASL words (containing at least 2 phonological parameters) to be translated. \\ [0.7cm]
             \hline
         \end{tabularx}
         \end{center}
 
-    \subsection{Evaluation Methodations}
-        Evaluation will consist of 2 main parts - speed and accuracy. Considering the goal of this project is a proof of concept for a \textbf{real-time} visual-manual interface, speed is equally if not more important than accuracy. Accuracy is measured through running each model through a specific dataset that is designed to push the model's accuracy to its limits. This testing dataset will feature a variety of different ambient lighting, degrees of motion blur, background and hand sizes (distance from camera). 
-
-        \noindent\textbf{Accuracy Analysis: } Accuracy will be measured by a variety of factors - the confusion matrix, recall scores, precision scores and most importantly the F1 score. The confusion matrix is a table of values filled with the frequency of predictions. This confusion matrix has 2 axis - the true classes and the predicted classes, each class then has it's class specific matrix. The class specific matrix is split into 4 categories - True Positive (TP), False Positive (FN), True Negative (TN), and False Negative (FN). The TN is when both the prediction and the true class aligns; FP is when the specified class is predicted but does not align with the true class; TN is when the non-true classes are not predicted; FN is when the prediction does not align with the true class.
-
-        \begin{center}
-            \includegraphics[width=9cm]{images/confusionclass.png}
-            \\
-            \raggedright \textit{
-            Figure 6: Visual representation of how to convert a multi-class confusion matrix into a class specific confusion matrix.
-            }
-        \end{center}
-
-        We can then calculate it's precision and recall score based on the class-specific confusion matrix we have extracted. Since, there will be a precision and recall score per class, the evaluation will offer the chance to monitor both the metrics of specific hard to classify classes and the mean metrics of the model. The precision score is the number of correct predictions out of all the predicted positive predictions. The recall score is the number of correct predictions out of all the true prredictions. The F1 score would simply be a harmonic mean of both the prediction and recall scores, also the main metric to be used to judge the model's efficacy. The equations to calculate these metrics is as follows:
-
-        \vskip 0.3cm
-        \[Precision = \frac{TP}{TP+FP} \qquad{}
-        Recall = \frac{TP}{TP+FN} \qquad{}
-        F1 = 2*\frac{Precision * Recall}{Precision + Recall}\]
-        \vskip 0.3cm
-        
-
-        \noindent\textbf{Speed Analysis: } Speed is measured by 2 main factors - process speed per frame and scalability. Process speed per frame is measured in milliseconds and is the average speed of which the model takes to classify a single hand pose. The lower the process speed, the higher the frames processed per second, and the more viable the model is for real-time applications. Scalability is equally as important as practical speed. This metric shows how many more milliseconds the model will add to its process speed per frame when a new class is added to the model. The lower the additional milliseconds it takes to learn to identify a new class the more scalable this model will be to actual applications (potentially hundred of classes needed). The main metric to be used to judge the model's speed is the mean millisecond per frame of the entire testset.
-
 \section{Program Design}
     \subsection{Design Iterations}
-        Before the final iteration of the program can be dissected, the first few iterations of the model must also be explored to emphasize the problems faced and the solutions found. During the initial phases, this project was only meant to be a static visual-manual classifier; however, due to an ever increasing scope, this project now presents an alternate pipeline for a \textbf{dynamic and real-time} visual-manual interface. For this paper, the developmental details of the progression between the first model to the final one will be reported. This includes the inner workings of the models, its problems and the evolutions required to solve them. A simple explanation of each model will be presented in this subsection.
+        Before the final iteration of the program can be explored, the first few iterations of the model must also be explored to emphasize the problems faced and the solutions found. During the initial phases, this project was only meant to be a static hand sign classifier; however, due to an increasing scope, this project now presents a custom dynamic and real-time visual-manual interface. For this paper, the developmental details of the progression between the first model (image classifier approach) to the final one (landmark assisted approach) will be reported. This includes the inner workings of the models, its problems and the evolutions required to solve them. A simple explanation of each model will be presented in this subsection.
 
-        The first model was a simple image recognition approach using a ConvNet to classify each hand's pose. This approach has significant limitations due to its slow prediction time and high inaccuracies. The first major limitation of this model is the fact that it is incredibly susceptible to background changes and ambient lighting, resulting in a very low accuracy outside of the settings of the dataset. There are also other limitations of this model such as its complete inability to scale to other phonological parameters and slow speeds (unfit for real-time applications on low end devices).
+        \paraskip
 
-        The second model aimed to fix that by removing the background elements by using a technique called canny edge detection. Canny edge detection is used as a way to alleviate the ambient lighting problem and as a resource-budget friendly way to segment images. This greatly improved accuracy but still struggles with more complex backgrounds. This is still computationally expensive and is still not practical for real-time applications, and also runs into the same scalability issues as the first model.
+        \noindent\textbf{ConvNet Approach: } The first model was a static image recognition approach using InceptionNet V1 (AKA GoogLeNet) to classify each hand's pose. This approach has significant limitations due to its slow inference and training times. The first major limitation of this model is the fact that it is susceptible to background changes and ambient lighting, resulting in a very low accuracy outside of the settings of the training dataset. There are also other limitations of this model such as its complete inability to scale to other phonological parameters.
 
-        The third model aimed to completely eliminate the background and lighting problem by explicitly feature extracting hand landmarks. This allows the features to be directly classified using a significantly more lightweight neural network via a multi-layered perceptron (MLP). This also drastically increase the scalability as the first part of the model (hand landmarking) will be in constant time in regards to number of classes and MLPs are significantly more scalable than ConvNets. The hand landmarks also provides a clear metric for where the hands are in regards to the image, allowing us to modify the model to include phonological parameters in regards to positioning and movement.
+        \paraskip
+
+        \noindent\textbf{Landmark Assisted Approach: } This is the definitive model of the project, aimed to completely eliminate the background and lighting problem by explicitly feature extracting hand landmarks. This allows the features to be directly classified using a significantly more lightweight neural network via a vanilla multi-layered perceptron (MLP). This also drastically increase the scalability, as the first part of the model (hand landmarking) will be in constant time. The hand landmarks also provides a clear metric for where the hands are in regards to the image, allowing us to modify the model to include phonological parameters in regards to referential locations and movements.
 
     \subsection{Program Architecture (ConvNet Approach)}
-        Convolutional neural networks are used for the first 2 interations of the visual-manual interface. This will be henceforth be referred to as the \textbf{static model}, due to its limitations to only classify words from a static frame. The idea behind the use of ConvNets is due to the fact that they are excellent at classifying data representable in image form. This allows us to implement a ConvNet and simply feed in the data raw for training. For this iteration's model, GoogLeNet (or InceptionNet v1) was chosen due to it's resistance to differing saliency. Saliency is `the property by which an object stands out', in our case, the hand. This resistancy is required due to the fact that the hand will not always be within the same distance of the camera, sometimes taking more space within and the screen and sometimes taking less. Observe the following example:
+        Convolutional neural networks are used for the first interation of the visual-manual interface. This will be commonly referred to as the \textbf{static model}, due to its limitations to only classify words from a static frame. The idea behind the use of ConvNets is due to the fact that they are excellent at classifying data representable in image form. This allows us to implement a ConvNet and simply feed in the data raw for training. 
+        
+        \paraskip
+
+        \noindent\textbf{Why GoogLeNet: } For this iteration's model, GoogLeNet (or InceptionNet v1) was chosen due to it's resistance to differing saliency. Saliency is `the property by which an object stands out', in our case, the hand. This resistancy is required due to the fact that the hand will not always be within the same distance of the camera, sometimes taking more space within and the screen and sometimes taking less. Observe the following example:
 
         \begin{center}
             \includegraphics[width=15cm]{images/cats.png}
@@ -273,7 +278,9 @@
 
         The premise of GoogLeNet's architecture is based on solving 3 main problems - Specificity of kernel sizes, deep networks overfitting, and computationally expensive convolutional layers. Firstly, choosing the kernel sizes used to be highly limited to specific tasks. This is due to the fact that there is often a large variation between location and size of an object within an image; a large kernels are often used for objects distributed more globally, while smaller kernels are used objects distributed more locally. Secondly, deep neural networks are more prone to overfitting. This means a deep network will be familiar with data very similar with its training set and fails to have any level of accuracy with new data introduced from outside of the set. Lastly, convolutional layers are very computationally expensive. Stacking them naively will lead to very long processing times that don't necessarily translate to better accuracy.
 
-        GoogLeNet solves these 3 problems by introducing a new type of convolutional layer called the `inception layer'. These inception layers allow for horizontal (instead of the traditional vertical) scaling, with kernels of differing size within the same level. Essentially the input feature map will be fed into multiple convolution and pooling layers of differing kernel sizes. The output of each of these operations will then be concantenated into one output map. This allows for increased flexibility for the network to learn stacks of features within the same level, solving our first problem. This also decreases the depth of the network as a whole by scaling its layers horizontally, overall decreasing overfit and giving a better accuracy per layer and per computer resources.
+        \paraskip
+
+        \noindent\textbf{Inception Layers: } GoogLeNet solves these 3 problems by introducing a new type of convolutional layer called the `inception layer'. These inception layers allow for horizontal (instead of the traditional vertical) scaling, with kernels of differing size within the same level. Essentially the input feature map will be fed into multiple convolution and pooling layers of differing kernel sizes. The output of each of these operations will then be concantenated into one output map. This allows for increased flexibility for the network to learn stacks of features within the same level, solving our first problem. This also decreases the depth of the network as a whole by scaling its layers horizontally, overall decreasing overfit and giving a better accuracy per layer and per computer resources.
 
         \begin{center}
             \includegraphics[width=12cm]{images/inceptionlayer.png}
@@ -283,7 +290,9 @@
             }
         \end{center}
 
-        The next iteration directly proceeding the GoogLeNet approach is the idea to preprocess all image data with a canny edge function. A canny edge function finds contrasting pixel values in an image and uses them to infer where an edge is. This was done in an attempt to ease the low accuracy rates caused by background influences; however, more complex backgrounds will continue to influence the image. A max-pool layer will also have to be applied to downscale the image while retaining the white edges (see Figure 2). 
+        \paraskip
+
+        \noindent\textbf{Canny Edge Modification: } The next iteration directly proceeding the GoogLeNet approach is the idea to preprocess all image data with a canny edge function. A canny edge function finds contrasting pixel values in an image and uses them to infer where an edge is. This was done in an attempt to ease the low accuracy rates caused by background influences; however, more complex backgrounds will continue to influence the image. A max-pool layer will also have to be applied to downscale the image while retaining the white edges (see Figure 2). 
 
         \begin{center}
             \includegraphics[width=10cm]{images/canny.png}
@@ -294,17 +303,11 @@
         \end{center}
 
     \subsection{Program Architecture (Hand Landmark Approach)}
-        The final iteration of this project uses pose estimation technology to extract hand landmarks to be used for classification. This model will henceforth be refered to as the \textbf{dynamic model}, due to it's ability to read and parse movement and changes in positions and symbols through multiple frames. The main premise of this approach is due to the idea that vanilla MLPs are easier to train and have a significantly faster runtime than ConvNets. This increase in speed is leveraged in hopes to make the program viable for real-time processing. There are other benefits to using this explicit feature extraction method as well - Hand tracking, even more resistance to changes in saliency, and complete background immunity. 
+        The final iteration of this project uses pose estimation technology to extract hand landmarks to be used for classification. This model will be referred to as the \textbf{dynamic model}, due to it's ability to read and parse movement and changes in positions and symbols through multiple frames. The main premise of this approach is due to the idea that vanilla MLPs are easier to train and have a significantly faster runtime than ConvNets. This increase in speed is leveraged in hopes to make the program viable for real-time processing. There are other benefits to using this explicit feature extraction method as well - Hand tracking, even more resistance to changes in saliency (through normalisation), and complete background immunity. Since the technology behind hand landmarking has been explained in a previous section (see section 2.3), this section will take a higher level explanation of the program architecture.
 
-        Hand tracking will allow us to start scaling towards other location and movement based phonological parameters. There are 2 ways to track the location of the hand within the image - average coordinates and palm coordinate. The average coordinate way of tracking will be to find the mean of all x-coordinates and mean of all y-coordinates as the total location of the hand. This method is good for when the a certain joint's prediction jitters and could be read by the program as wild movements. The palm coordinate method is simply represent the hands location by the bottom of the palm. It is a lot simpler to implement but also less accurate. The formula for average tracking is as follows:
+        \paraskip
 
-        \[HandLocation = (\bar{HandX}, \bar{HandY}) \qquad{}
-        \bar{HandX} = \frac{1}{n}\Sigma x_{joint} \qquad{}
-        \bar{HandY}  = \frac{1}{n}\Sigma y_{joint}
-        \]
-        \vskip 0.3cm
-
-        Each joint is scale and position normalized before feeding into the neural network for the sake of consistency. For position normalisation, we set the bottom of the palm at (0,0) and scale each joint accordingly by setting the original bottom palm landmark as the offset. Each joint will then have its coordinate values subtracted by the palm offsets. This allows the same hand pose to be wherever in the image and still return the same coordinate values. The scale normalisation is simply min-max scaling between all the coordinates. The x and y distances between each landmark will still be on the same ratio but bound between either a relative or arbitrary maximum and minimum value, typically set between 0 and 1; therefore, preserving the most important feature (the ratio between limbs) while gaining data consistency. Relative min-max scales the values between the largest and smallest values within the original table, squishing them between 1 and 0. Arbitrary min-max scales does essentially the same but forces the new largest and smallest value to be between an $a$ and $b$ value. This allows for the same hand pose to be as close or as far away from the camera and still return the same coordinate values. The equations for both min-max scaling is as follows:
+        \noindent\textbf{Landmark Normalisation: } Each joint is scale and position normalized before feeding into the neural network for the sake of consistency. For position normalisation, we set the bottom of the palm at (0,0) and scale each joint accordingly by setting the original bottom palm landmark as the offset. Each joint will then have its coordinate values subtracted by the palm offsets. This allows the same hand pose to be wherever in the image and still return the same coordinate values. The scale normalisation is simply min-max scaling between all the coordinates. The x and y distances between each landmark will still be on the same ratio but bound between either a relative or arbitrary maximum and minimum value, typically set between 0 and 1; therefore, preserving the most important feature (the ratio between limbs) while gaining data consistency. Relative min-max scales the values between the largest and smallest values within the original table, squishing them between 1 and 0. Arbitrary min-max scales does essentially the same but forces the new largest and smallest value to be between an $a$ and $b$ value. This allows for the same hand pose to be as close or as far away from the camera and still return the same coordinate values. The equations for both min-max scaling is as follows:
 
         \vskip 0.3cm
         \[
@@ -316,14 +319,29 @@
         \] 
         \vskip 0.3cm
 
+        \paraskip
+
+        \noindent\textbf{Location and Motion Tracking: } Hand tracking will allow us to start scaling towards other location and movement based phonological parameters. There are 2 ways to track the location of the hand within the image - average coordinates and palm coordinate. The average coordinate way of tracking will be to find the mean of all x-coordinates and mean of all y-coordinates as the total location of the hand. This method is good for when the a certain joint's prediction jitters and could be read by the program as wild movements. The palm coordinate method is simply represent the hands location by the bottom of the palm. It is a lot simpler to implement but also less accurate. The formula for average tracking is as follows:
+
+        \[HandLocation = (\bar{HandX}, \bar{HandY}) \qquad{}
+        \bar{HandX} = \frac{1}{n}\Sigma x_{joint} \qquad{}
+        \bar{HandY}  = \frac{1}{n}\Sigma y_{joint}
+        \]
+        \vskip 0.3cm
+
         Movement can be tracked by calculating the difference between 2 consecutive frame's hand coordinate. The hand's overall coordinate can be obtained using the paragraphs above (either mean centered or palm centered). The difference in position between the overall hands position between 2 frames will be used to calculate the direction it is travelling at that instance. However, with this approach, even when the hand is as still as possible the camera will still detect micro-movements and translate that into a direction; therefore, we need an arbitrary threshold for how big a movement has to be before it is considered a movement. The direction detection will only classify an 8-way movement for this program - left, right, up, down and all the diagonals. Every movement within a single held pose will be logged until the hand pose is changed, then the direction that composes more than 30\% of the whole log will be considered for the word. 
 
 
         \subsection{Symbol Translation Module}
-        Translation from symbols detected using the models above need to still be translated into English words. On the static model, words will have to simply formed using a combination of letters also known as fingerspelling. On the dynamic model, movement will also be parsed and read alongside the symbol. The parsed movements (obtained via the method in the subsection above), will be concantenated at the end of the symbol. These concantenated string will simply be referred to as tokens. The translation process will take 2 parts - the autocorrect and the actual translation. The autocorrection is needed due to small inaccuracies can ruin the entire prediction. Levenshtein distance is an algorithm used to calculate a score for how different a string is to another. Every operation is has a score assigned to it (e.g. substitution is $+1$, deletion and insertion is $+0.5$); the Levenshtein distance is the aggregate score of all edit needed to be made from one string to become another. To autocorrect we simply need to find the levenshtein distance between our token and the dictionary of potential strings, then the string will the smallest distance will replace the token. If the string matches the token the distance will be 0 and no replacements need to be made. The algorithm used to find Levenshtein distance will be a weighted variant specific to this project; there will be weighted substitutions to every direction symbol. The substitution cost for a direction $x$ units away will be $x$, that way the futher the directions need to be corrected, the higher the cost.
+        Translation from symbols detected using the models above need to still be translated into English words. On the static model, words will have to simply formed using a combination of letters also known as fingerspelling. On the dynamic model, movement will also be parsed and read alongside the symbol. The parsed movements (obtained via the method in the subsection above), will be concantenated at the end of the symbol. These concantenated string will simply be referred to as tokens. The translation process will take 2 parts - the autocorrect and the actual translation. 
+        
+        \paraskip
 
+        \noindent\textbf{Levenshtein's Distance: } The autocorrection is needed due to small inaccuracies can ruin the entire prediction. Levenshtein distance is an algorithm used to calculate a score for how different a string is to another. Every operation is has a score assigned to it (e.g. substitution is $+1$, deletion and insertion is $+0.5$); the Levenshtein distance is the aggregate score of all edit needed to be made from one string to become another. To autocorrect we simply need to find the levenshtein distance between our token and the dictionary of potential strings, then the string will the smallest distance will replace the token. If the string matches the token the distance will be 0 and no replacements need to be made. The algorithm used to find Levenshtein distance will be a weighted variant specific to this project; there will be weighted substitutions to every direction symbol. The substitution cost for a direction $x$ units away will be $x$, that way the futher the directions need to be corrected, the higher the cost.
 
-        Translation will simply be the autocorrected word looked-up through a hashmap. This is the fastest way to do it due to the average $O(1)$ search time. The space complexity of $O(n)$ can somewhat be neglected due to modern hardware. The entire English language has around 200,000 words, and ASL has around 100,000 words. Because translation has to be a 1 to 1 mapping, we only need entries for around 100,000 words. Assuming each English word has 10 characters, and ASL tokens around 4, we would need 1,400,000 characters in memory for the dictionary. This only takes up 1.4 megabyte of memory, which justifies the use of a hashmap given the speed benefits.
+        \paraskip
+
+        \noindent\textbf{Translation: } Translation will simply be the autocorrected word looked-up through a hashmap. This is the fastest way to do it due to the average $O(1)$ search time. The space complexity of $O(n)$ can somewhat be neglected due to modern hardware. The entire English language has around 200,000 words, and ASL has around 100,000 words. Because translation has to be a 1 to 1 mapping, we only need entries for around 100,000 words. Assuming each English word has 10 characters, and ASL tokens around 4, we would need 1,400,000 characters in memory for the dictionary. This only takes up 1.4 megabyte of memory, which justifies the use of a hashmap given the speed benefits.
         
 
 \section{Implementation}
@@ -437,6 +455,32 @@
 
 
 \section{Evaluation and Approach Comparison}
+    \subsection{Evaluation Methodations}
+        Evaluation will consist of 2 main parts - speed and accuracy. Considering the goal of this project is a proof of concept for a \textbf{real-time} visual-manual interface, speed is equally if not more important than accuracy. Accuracy is measured through running each model through a specific dataset that is designed to push the model's accuracy to its limits. This testing dataset will feature a variety of different ambient lighting, degrees of motion blur, background and hand sizes (distance from camera). 
+
+        \paraskip
+
+        \noindent\textbf{Accuracy Analysis: } Accuracy will be measured by a variety of factors - the confusion matrix, recall scores, precision scores and most importantly the F1 score. The confusion matrix is a table of values filled with the frequency of predictions. This confusion matrix has 2 axis - the true classes and the predicted classes, each class then has it's class specific matrix. The class specific matrix is split into 4 categories - True Positive (TP), False Positive (FN), True Negative (TN), and False Negative (FN). The TN is when both the prediction and the true class aligns; FP is when the specified class is predicted but does not align with the true class; TN is when the non-true classes are not predicted; FN is when the prediction does not align with the true class.
+
+        \begin{center}
+            \includegraphics[width=9cm]{images/confusionclass.png}
+            \\
+            \raggedright \textit{
+            Figure 6: Visual representation of how to convert a multi-class confusion matrix into a class specific confusion matrix.
+            }
+        \end{center}
+
+        We can then calculate it's precision and recall score based on the class-specific confusion matrix we have extracted. Since, there will be a precision and recall score per class, the evaluation will offer the chance to monitor both the metrics of specific hard to classify classes and the mean metrics of the model. The precision score is the number of correct predictions out of all the predicted positive predictions. The recall score is the number of correct predictions out of all the true prredictions. The F1 score would simply be a harmonic mean of both the prediction and recall scores, also the main metric to be used to judge the model's efficacy. The equations to calculate these metrics is as follows:
+
+        \vskip 0.3cm
+        \[Precision = \frac{TP}{TP+FP} \qquad{}
+        Recall = \frac{TP}{TP+FN} \qquad{}
+        F1 = 2*\frac{Precision * Recall}{Precision + Recall}\]
+        \vskip 0.3cm
+        
+
+        \noindent\textbf{Speed Analysis: } Speed is measured by 2 main factors - process speed per frame and scalability. Process speed per frame is measured in milliseconds and is the average speed of which the model takes to classify a single hand pose. The lower the process speed, the higher the frames processed per second, and the more viable the model is for real-time applications. Scalability is equally as important as practical speed. This metric shows how many more milliseconds the model will add to its process speed per frame when a new class is added to the model. The lower the additional milliseconds it takes to learn to identify a new class the more scalable this model will be to actual applications (potentially hundred of classes needed). The main metric to be used to judge the model's speed is the mean millisecond per frame of the entire testset.
+
     \subsection{Testing Set}
         A testing set that is completely disjoint from the original dataset will have to be collected. This is due to the images from the original dataset being too similar to each other. This led to the initial round of testing on a subsection of the original dataset having an accuracy score that does not reflect the true performance of the models. 
 
