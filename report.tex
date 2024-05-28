@@ -67,11 +67,11 @@
     This section will provide most of the technical prerequisite knowledge to understanding the approaches to the design on the program and the implementation of the program itself. This section will only include a very brief and high level explanation of the concepts at hand.
 
     \subsection{American Sign Language}
-        There are approximately 70 million deaf people worldwide, who collectively use over 300 signed languages. Amongst those communities, the American Sign Language (ASL) is commonly accepted as a lingua franca (common language), with many deaf individuals learning ASL as a secondary language as a means to communicate with deaf people from different countries / communities. Over 500,000 people in the United States of America (USA) use ASL as their native language; this statistic does not even include non-native (second language) users of ASL or native users of ASL outside of the USA (such as Canada). These signed languages are vital to the enabling of social interactions within these communities. 
+        There are approximately 70 million deaf people worldwide, who collectively use over 300 signed languages \cite{lingsoc}. Amongst those communities, the American Sign Language (ASL) is commonly accepted as a lingua franca (common language), with many deaf individuals learning ASL as a secondary language as a means to communicate with deaf people from different countries / communities. Over 500,000 people in the United States of America (USA) use ASL as their native language; this statistic does not even include non-native (second language) users of ASL or native users of ASL outside of the USA (such as Canada) \cite{ASL}. These signed languages are vital to the enabling of social interactions within these communities. 
 
         \paraskip
 
-        \noindent\textbf{Lack of Digital Support:} Even with such a large userbase, ASL (or any signed language for that matter) severly lacks digital language support. According a study conducted by ACL Anthology - ”Assessing Digital Language Support on a Global Scale”, ASL is on the ”Emerging” category. This means the language has some content in digital form (mainly videos on social media or educational platforms), but lacks programs for machine interpretation.
+        \noindent\textbf{Lack of Digital Support:} Even with such a large userbase, ASL (or any signed language for that matter) severly lacks digital language support. According a study conducted by ACL Anthology - ”Assessing Digital Language Support on a Global Scale”, ASL is on the ”Emerging” category \cite{ethnoASL}. This means the language has some content in digital form (mainly videos on social media or educational platforms), but lacks programs for machine interpretation.
 
         \paraskip
 
@@ -117,10 +117,10 @@
         
         \paraskip
 
-        \noindent\textbf{Top-down vs Bottom-up: } Top-down is straight forward, it first detect the object in an image and then feature extract the joints from the object. Top-down approaches are excellent for multi-object pose estimation as it knows how many objects are in the scene and knows exactly what joints to expect within each object's bounding box. The problem with a top-down approach is that it is slow, it requires the intial image to be processed then every subsequent object detected within that image. Bottom-up does it in reverse, it first locates and detects all joints from an image, then reconstructs a object based on the joints. This results in an `only-look-once' effect allowing for significantly faster processing time. However, this approach struggles significantly with multiple objects, as different objects joints may be assigned to each other resulting in very inaccurate results. Top-down is a more accurate albeit slow method suitable for non time sensitive programs, while bottom-up is more suitable for real-time single object applications. 
+        \noindent\textbf{Top-down vs Bottom-up: } Top-down is straight forward, it first detect the object in an image and then feature extract the joints from the object \cite{poseest}. Top-down approaches are excellent for multi-object pose estimation as it knows how many objects are in the scene and knows exactly what joints to expect within each object's bounding box. The problem with a top-down approach is that it is slow, it requires the intial image to be processed then every subsequent object detected within that image. Bottom-up does it in reverse, it first locates and detects all joints from an image, then reconstructs a object based on the joints \cite{poseest}. This results in an `only-look-once' effect allowing for significantly faster processing time. However, this approach struggles significantly with multiple objects, as different objects joints may be assigned to each other resulting in very inaccurate results. Top-down is a more accurate albeit slow method suitable for non time sensitive programs, while bottom-up is more suitable for real-time single object applications. 
 
         \paraskip
-        \noindent\textbf{OpenPose's Architecture: } In 2019, Zhe Cao and his colleagues designed OpenPose - a framework that was designed as a multi-object bottom-up approach to pose-estimation. Cao et al, invented a technique they call the Parts-Affinity Field (PAF) to accurately assign joints to their respective objects, while maintaining the speedy `only look once' effect of a bottom-up solution. The PAF is a field built with a set of 2D vectors that represent the directions of the limbs between each sets of joints. Bipartite matching is then employed to assure no 2 same-typed joints connect to the same joint (E.g. 2 different top thumb joints cannot connect to the same bottom thumb joint).
+        \noindent\textbf{OpenPose's Architecture: } In 2019, Zhe Cao and his colleagues designed OpenPose - a framework that was designed as a multi-object bottom-up approach to pose-estimation. Cao et al, invented a technique they call the Parts-Affinity Field (PAF) to accurately assign joints to their respective objects, while maintaining the speedy `only look once' effect of a bottom-up solution \cite{openpose}. The PAF is a field built with a set of 2D vectors that represent the directions of the limbs between each sets of joints. Bipartite matching is then employed to assure no 2 same-typed joints connect to the same joint (E.g. 2 different top thumb joints cannot connect to the same bottom thumb joint).
 
         \vskip 0.2cm
         \begin{center}
@@ -266,7 +266,7 @@
         
         \paraskip
 
-        \noindent\textbf{Why GoogLeNet: } For this iteration's model, GoogLeNet (or InceptionNet v1) was chosen due to it's resistance to differing saliency. Saliency is `the property by which an object stands out', in our case, the hand. This resistancy is required due to the fact that the hand will not always be within the same distance of the camera, sometimes taking more space within and the screen and sometimes taking less. Observe the following example:
+        \noindent\textbf{Why GoogLeNet: } For this iteration's model, GoogLeNet (or InceptionNet v1) was chosen due to it's resistance to differing saliency \cite{inception}. Saliency is `the property by which an object stands out', in our case, the hand. This resistancy is required due to the fact that the hand will not always be within the same distance of the camera, sometimes taking more space within and the screen and sometimes taking less. Observe the following example:
 
         \begin{center}
             \includegraphics[width=15cm]{images/cats.png}
@@ -280,7 +280,7 @@
 
         \paraskip
 
-        \noindent\textbf{Inception Layers: } GoogLeNet solves these 3 problems by introducing a new type of convolutional layer called the `inception layer'. These inception layers allow for horizontal (instead of the traditional vertical) scaling, with kernels of differing size within the same level. Essentially the input feature map will be fed into multiple convolution and pooling layers of differing kernel sizes. The output of each of these operations will then be concantenated into one output map. This allows for increased flexibility for the network to learn stacks of features within the same level, solving our first problem. This also decreases the depth of the network as a whole by scaling its layers horizontally, overall decreasing overfit and giving a better accuracy per layer and per computer resources.
+        \noindent\textbf{Inception Layers: } GoogLeNet solves these 3 problems by introducing a new type of convolutional layer called the `inception layer' \cite{inception}. These inception layers allow for horizontal (instead of the traditional vertical) scaling, with kernels of differing size within the same level. Essentially the input feature map will be fed into multiple convolution and pooling layers of differing kernel sizes. The output of each of these operations will then be concantenated into one output map. This allows for increased flexibility for the network to learn stacks of features within the same level, solving our first problem. This also decreases the depth of the network as a whole by scaling its layers horizontally, overall decreasing overfit and giving a better accuracy per layer and per computer resources.
 
         \begin{center}
             \includegraphics[width=12cm]{images/inceptionlayer.png}
@@ -396,7 +396,7 @@
         \includegraphics[width=16cm]{images/googlenet.png}
         \\
         \raggedright \textit{
-        Figure 10: GoogLeNet architecture visualised. Red boxes are inception modules, green boxes are softmax modules.
+        Figure 10: GoogLeNet architecture visualised. Red boxes are inception modules, green boxes are softmax modules. \cite{gnet}
         }
     \end{center}
 
@@ -587,17 +587,25 @@
 \pagebreak 
 
 \begin{thebibliography}{30}
-    \bibitem{greedy2} Programiz, \emph{"Greedy Algorithm"}, Available at: \url{https://www.programiz.com/dsa/greedy-algorithm}
+    \bibitem{lingsoc} D. M. Perlmutter, \emph{"What is Sign Language"}, Linguistic Society of America, Available at: \url{https://www.linguisticsociety.org/content/what-sign-language}
 
-    \bibitem{boruvka} O. Boruvka, \emph{"O jistém problému minimálním - About a certain minimal problem"}, Práce Mor. Přírodověd. Spol. V Brně III, 1926
+    \bibitem{ASL} STATE OF RHODE ISLAND, Commission on the Deaf and Hard of Hearing, \emph{"American Sign Language"}, Available at: \url{https://cdhh.ri.gov/information-referral/american-sign-language.php#:~:text=ASL%2C%20short%20for%20American%20Sign,communicate%20as%20their%20native%20language.}
 
-    \bibitem{lemma} H. Nicholas, \emph{"Handbook of Writing for the Mathematical Sciences"}, Society for Industrial and Applied Mathematics, pp. 16, 1998.
+    \bibitem{ethnologue} Ethnologue, \emph{"American Sign Language"}, Available at: \url{https://www.ethnologue.com/language/ase/}
 
-    \bibitem{waterloo lemma} R. Oliveira, \emph{"Lecture 13: Minimum Spanning Trees"}, University of Waterloo Cheriton School of Computer Science, 2023, Accessed at: \url{https://student.cs.uwaterloo.ca/~cs341/lectures/lecture13.pdf}
+    \bibitem{cnn generals} R. Venkatesan, B.X. Li, \emph{"Convolutional Neural Networks in Visual Computing, A Concise Guide"}, CRC Press, 2017
 
-    \bibitem{union find} R. E. Tarjan, \emph{"Efficiency of a Good But Not Linear Set Union Algorithm"}, Journal of the ACM, 1975
-    
-    \bibitem{chazelle} B. Chazelle, \emph{"A minimum spanning tree algorithm with inverse-Ackermann type complexity"}, J. ACM, 2000 
+    \bibitem{cnn goat} J. Jordan, \emph{"Data Science - Convolutional Neural Networks"}, Available at: \url{https://www.jeremyjordan.me/convolutional-neural-networks}
+
+    \bibitem{poolingdiff} M. Basavarajaiah, \emph{"Max Pooling vs Min Pooling vs Average Pooling"}, Available at: \url{https://medium.com/@bdhuma/which-pooling-method-is-better-maxpooling-vs-minpooling-vs-average-pooling-95fb03f45a9}
+
+    \bibitem{poseest} E. Odemakinde, \emph{"Human Pose Estimation with Deep Learning"}, Viso AI, Available on: \url{https://viso.ai/deep-learning/pose-estimation-ultimate-overview/}
+
+    \bibitem{openpose} Z. Cao, G. Hidalgo, T. Simon, S.E Wei, and Y. Sheikh, \emph{"OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields"}, IEEE Transactions on Pattern Analysis and Machine Intelligence, 2019
+
+    \bibitem{inception} B. Raj, \emph{"A Simple Guide to the Versions of the Inception Network"}, Available on: \url{https://towardsdatascience.com/a-simple-guide-to-the-versions-of-the-inception-network-7fc52b863202}
+
+    \bibitem{gnet} E. Gomede, \emph{"Exploring GoogLeNet: A Revolutionary Deep Learning Architecture"}, Available on: \url{https://medium.com/the-modern-scientist/exploring-googlenet-a-revolutionary-deep-learning-architecture-8bb176a0facc}
 
 \end{thebibliography}
 

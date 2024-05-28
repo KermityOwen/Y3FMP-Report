@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.21)  28 APR 2024 20:00
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.21)  7 MAY 2024 23:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -860,73 +860,67 @@ File: ./images/audVsVM.png Graphic file (type png)
 <use ./images/audVsVM.png>
 Package pdftex.def Info: ./images/audVsVM.png  used on input line 56.
 (pdftex.def)             Requested size: 369.88582pt x 112.49446pt.
- [2 <./images/audVsVM.png>]
-<./images/kernels.png, id=194, 1830.84pt x 659.46375pt>
+
+
+LaTeX Warning: Citation `ethnoASL' on page 2 undefined on input line 74.
+
+[2 <./images/audVsVM.png>]
+<./images/kernels.png, id=198, 1830.84pt x 659.46375pt>
 File: ./images/kernels.png Graphic file (type png)
 <use ./images/kernels.png>
 Package pdftex.def Info: ./images/kernels.png  used on input line 93.
 (pdftex.def)             Requested size: 341.43306pt x 122.97495pt.
-
-
-LaTeX Warning: Citation `cnn goat' on page 3 undefined on input line 97.
-
-<./images/blackpool.png, id=196, 1210.5225pt x 795.97375pt>
+<./images/blackpool.png, id=201, 1210.5225pt x 795.97375pt>
 File: ./images/blackpool.png Graphic file (type png)
 <use ./images/blackpool.png>
 Package pdftex.def Info: ./images/blackpool.png  used on input line 106.
 (pdftex.def)             Requested size: 170.71652pt x 112.24931pt.
-<./images/whitepool.png, id=197, 1208.515pt x 793.96625pt>
+<./images/whitepool.png, id=202, 1208.515pt x 793.96625pt>
 File: ./images/whitepool.png Graphic file (type png)
 <use ./images/whitepool.png>
 Package pdftex.def Info: ./images/whitepool.png  used on input line 108.
 (pdftex.def)             Requested size: 170.71652pt x 112.14793pt.
-[3 <./images/kernels.png>]
-
-LaTeX Warning: Citation `poolingdiff' on page 4 undefined on input line 112.
-
-<images/openpose.png, id=203, 1169.36874pt x 263.98625pt>
+ [3 <./images/kernels.png>]
+<images/openpose.png, id=213, 1169.36874pt x 263.98625pt>
 File: images/openpose.png Graphic file (type png)
 <use images/openpose.png>
 Package pdftex.def Info: images/openpose.png  used on input line 127.
 (pdftex.def)             Requested size: 398.33858pt x 89.92331pt.
-
-LaTeX Warning: Citation `openpose' on page 4 undefined on input line 132.
-
-[4 <./images/blackpool.png> <./images/whitepool.png> <./images/openpose.png>]
-<images/staticModel.png, id=211, 966.885pt x 469.755pt>
+ [4 <./images/blackpool.png> <./images/whitepool.png> <./images/openpose.png>]
+<images/staticModel.png, id=225, 2904.8525pt x 1082.0425pt>
 File: images/staticModel.png Graphic file (type png)
 <use images/staticModel.png>
 Package pdftex.def Info: images/staticModel.png  used on input line 155.
-(pdftex.def)             Requested size: 341.43306pt x 165.87895pt.
+(pdftex.def)             Requested size: 341.43306pt x 127.18129pt.
  [5 <./images/staticModel.png>]
-<images/nonstaticModel.png, id=217, 1278.96pt x 479.0625pt>
+<images/nonstaticModel.png, id=231, 3713.875pt x 978.65625pt>
 File: images/nonstaticModel.png Graphic file (type png)
 <use images/nonstaticModel.png>
 Package pdftex.def Info: images/nonstaticModel.png  used on input line 173.
-(pdftex.def)             Requested size: 341.43306pt x 127.88661pt.
+(pdftex.def)             Requested size: 341.43306pt x 89.97176pt.
 
 Overfull \hbox (3.77473pt too wide) in paragraph at lines 180--181
 []\T1/cmr/m/n/10.95 This solution of having a written medium with extracted features represented as respective characters
  []
 
-<images/predOverTime.png, id=218, 968.5275pt x 267.7275pt>
+<images/predOverTime.png, id=232, 968.5275pt x 267.7275pt>
 File: images/predOverTime.png Graphic file (type png)
 <use images/predOverTime.png>
 Package pdftex.def Info: images/predOverTime.png  used on input line 190.
 (pdftex.def)             Requested size: 341.43306pt x 94.38007pt.
 [6 <./images/nonstaticModel.png> <./images/predOverTime.png>] [7]
-<images/cats.png, id=234, 1132.23pt x 241.4475pt>
+<images/cats.png, id=249, 1132.23pt x 241.4475pt>
 File: images/cats.png Graphic file (type png)
 <use images/cats.png>
 Package pdftex.def Info: images/cats.png  used on input line 272.
 (pdftex.def)             Requested size: 426.79134pt x 91.01047pt.
  [8 <./images/cats.png>]
-<images/inceptionlayer.png, id=240, 722.7pt x 355.3275pt>
+<images/inceptionlayer.png, id=257, 722.7pt x 355.3275pt>
 File: images/inceptionlayer.png Graphic file (type png)
 <use images/inceptionlayer.png>
 Package pdftex.def Info: images/inceptionlayer.png  used on input line 286.
 (pdftex.def)             Requested size: 341.43306pt x 167.87143pt.
-<images/canny.png, id=241, 813.585pt x 418.29pt>
+<images/canny.png, id=258, 813.585pt x 418.29pt>
 File: images/canny.png Graphic file (type png)
 <use images/canny.png>
 Package pdftex.def Info: images/canny.png  used on input line 298.
@@ -936,24 +930,24 @@ Overfull \hbox (7.99904pt too wide) in paragraph at lines 332--333
 []\T1/cmr/m/n/10.95 Movement can be tracked by calculating the difference between 2 consecutive frame's hand coordinate.
  []
 
-[10] [11]
-<images/monolith1.png, id=257, 1285.53pt x 682.7325pt>
+[10]
+<images/monolith1.png, id=270, 1285.53pt x 682.7325pt>
 File: images/monolith1.png Graphic file (type png)
 <use images/monolith1.png>
 Package pdftex.def Info: images/monolith1.png  used on input line 380.
 (pdftex.def)             Requested size: 369.88582pt x 196.44554pt.
-
+ [11]
 Overfull \hbox (11.22217pt too wide) in paragraph at lines 387--388
 \T1/cmr/m/n/10.95 OpenCV. The application layer is responsible for all the data preprocessing and all auxiliary functionalities
  []
 
-<images/googlenet.png, id=258, 1239.63126pt x 315.1775pt>
+<images/googlenet.png, id=275, 1239.63126pt x 315.1775pt>
 File: images/googlenet.png Graphic file (type png)
 <use images/googlenet.png>
 Package pdftex.def Info: images/googlenet.png  used on input line 396.
 (pdftex.def)             Requested size: 455.24408pt x 115.74338pt.
 [12 <./images/monolith1.png> <./images/googlenet.png (PNG copy)>]
-<images/monolith2.png, id=265, 1116.3525pt x 578.16pt>
+<images/monolith2.png, id=284, 1116.3525pt x 578.16pt>
 File: images/monolith2.png Graphic file (type png)
 <use images/monolith2.png>
 Package pdftex.def Info: images/monolith2.png  used on input line 411.
@@ -964,56 +958,55 @@ Overfull \hbox (17.4799pt too wide) in paragraph at lines 421--422
  []
 
 [13 <./images/monolith2.png>]
-<images/mlp.png, id=271, 2303.60625pt x 1454.43375pt>
+<images/mlp.png, id=290, 2303.60625pt x 1454.43375pt>
 File: images/mlp.png Graphic file (type png)
 <use images/mlp.png>
 Package pdftex.def Info: images/mlp.png  used on input line 442.
 (pdftex.def)             Requested size: 227.62204pt x 143.69865pt.
- [14] [15 <./images/mlp.png>]
-<images/confusionclass.png, id=280, 651.93562pt x 371.3875pt>
+ [14 <./images/mlp.png>] [15]
+<images/confusionclass.png, id=299, 651.93562pt x 371.3875pt>
 File: images/confusionclass.png Graphic file (type png)
 <use images/confusionclass.png>
 Package pdftex.def Info: images/confusionclass.png  used on input line 472.
 (pdftex.def)             Requested size: 256.0748pt x 145.88324pt.
  [16 <./images/confusionclass.png>]
-<images/gnetrecall.png, id=286, 462.528pt x 346.896pt>
+<images/gnetrecall.png, id=305, 462.528pt x 346.896pt>
 File: images/gnetrecall.png Graphic file (type png)
 <use images/gnetrecall.png>
 Package pdftex.def Info: images/gnetrecall.png  used on input line 510.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/gnetprec.png, id=287, 462.528pt x 346.896pt>
+<images/gnetprec.png, id=306, 462.528pt x 346.896pt>
 File: images/gnetprec.png Graphic file (type png)
 <use images/gnetprec.png>
 Package pdftex.def Info: images/gnetprec.png  used on input line 511.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/gnetf1.png, id=288, 462.528pt x 346.896pt>
+<images/gnetf1.png, id=307, 462.528pt x 346.896pt>
 File: images/gnetf1.png Graphic file (type png)
 <use images/gnetf1.png>
 Package pdftex.def Info: images/gnetf1.png  used on input line 513.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
- [17 <./images/gnetrecall.png> <./images/gnetprec.png>]
-<images/htrecall.png, id=295, 462.528pt x 346.896pt>
+ [17 <./images/gnetrecall.png> <./images/gnetprec.png> <./images/gnetf1.png>]
+<images/htrecall.png, id=315, 462.528pt x 346.896pt>
 File: images/htrecall.png Graphic file (type png)
 <use images/htrecall.png>
 Package pdftex.def Info: images/htrecall.png  used on input line 533.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/htprec.png, id=296, 462.528pt x 346.896pt>
+<images/htprec.png, id=316, 462.528pt x 346.896pt>
 File: images/htprec.png Graphic file (type png)
 <use images/htprec.png>
 Package pdftex.def Info: images/htprec.png  used on input line 534.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
-<images/htf1.png, id=297, 462.528pt x 346.896pt>
+<images/htf1.png, id=317, 462.528pt x 346.896pt>
 File: images/htf1.png Graphic file (type png)
 <use images/htf1.png>
 Package pdftex.def Info: images/htf1.png  used on input line 536.
 (pdftex.def)             Requested size: 227.62204pt x 170.71628pt.
- [18 <./images/gnetf1.png> <./images/htrecall.png> <./images/htprec.png> <./images/htf1.png>]
-<images/f1compare.png, id=307, 1026.234pt x 416.9979pt>
+<images/f1compare.png, id=318, 1026.234pt x 416.9979pt>
 File: images/f1compare.png Graphic file (type png)
 <use images/f1compare.png>
 Package pdftex.def Info: images/f1compare.png  used on input line 556.
 (pdftex.def)             Requested size: 455.24408pt x 184.98128pt.
-
+ [18 <./images/htrecall.png> <./images/htprec.png> <./images/htf1.png>]
 Overfull \hbox (10.88005pt too wide) in paragraph at lines 567--568
 \T1/cmr/m/n/10.95 and 17.03% respective. Overall accuracy improvement is at 17.01%. This is a very noticeable improvement
  []
@@ -1023,8 +1016,43 @@ LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 59
  (/usr/local/texlive/2024/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 590--591
-[]\T1/cmr/m/n/10.95 Programiz, \T1/cmr/m/it/10.95 "Greedy Algorithm"\T1/cmr/m/n/10.95 , Available at: []$\T1/cmtt/m/n/10.95 https : / / www . programiz . com / dsa /
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
+[]\T1/cmr/m/n/10.95 STATE OF RHODE ISLAND, Commission on the Deaf and Hard of Hearing,
+ []
+
+
+Underfull \hbox (badness 1735) in paragraph at lines 592--593
+\T1/cmr/m/it/10.95 "American Sign Language"\T1/cmr/m/n/10.95 , Available at: []$\T1/cmtt/m/n/10.95 https : / / cdhh . ri . gov / information-[]referral /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
+\T1/cmtt/m/n/10.95 american-[]sign-[]language . php# : ~ : text = ASL % 2C % 20short % 20for % 20American % 20Sign ,[]
+ []
+
+
+Overfull \hbox (138.34715pt too wide) in paragraph at lines 600--601
+\T1/cmtt/m/n/10.95 medium . com / @bdhuma / which-[]pooling-[]method-[]is-[]better-[]maxpooling-[]vs-[]minpooling-[]vs-[]average-[]pooling-[]95fb03f45a9$[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--607
+[]\T1/cmr/m/n/10.95 B. Raj, \T1/cmr/m/it/10.95 "A Simple Guide to the Versions of the Inception
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 606--607
+\T1/cmr/m/it/10.95 Network"\T1/cmr/m/n/10.95 , Available on: []$\T1/cmtt/m/n/10.95 https : / / towardsdatascience . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
+[]\T1/cmr/m/n/10.95 E. Gomede, \T1/cmr/m/it/10.95 "Exploring GoogLeNet: A Revolutionary Deep Learning
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 608--609
+\T1/cmr/m/it/10.95 Architecture"\T1/cmr/m/n/10.95 , Available on: []$\T1/cmtt/m/n/10.95 https : / / medium . com / the-[]modern-[]scientist /
  []
 
 [21] (./report.aux)
@@ -1040,18 +1068,18 @@ Package rerunfilecheck Info: File `report.out' has not changed.
 (rerunfilecheck)             Checksum: BE5302C96C3D355148221B929D67EC3B;5944.
  ) 
 Here is how much of TeX's memory you used:
- 12389 strings out of 474116
- 194938 string characters out of 5743682
+ 12397 strings out of 474116
+ 195022 string characters out of 5743682
  1939187 words of memory out of 5000000
- 34509 multiletter control sequences out of 15000+600000
+ 34513 multiletter control sequences out of 15000+600000
  573651 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,8n,79p,1552b,542s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1552b,534s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on report.pdf (22 pages, 6948393 bytes).
+Output written on report.pdf (22 pages, 8195526 bytes).
 PDF statistics:
- 415 PDF objects out of 1000 (max. 8388607)
- 314 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
+ 444 PDF objects out of 1000 (max. 8388607)
+ 343 compressed objects within 4 object streams
+ 68 named destinations out of 1000 (max. 500000)
  380 words of extra memory for PDF output out of 10000 (max. 10000000)
 
